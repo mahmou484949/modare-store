@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modar - مودار | متجر ملابس</title>
+
+  <style>
+    :root{
+      --bg:#111827; /* خلفية غامقة */
+      --card:#1f2937; 
+      --accent:#ff7a59; 
+      --muted:#9ca3af; 
+      --white:#f9fafb; 
+      --radius:14px;
+      --max-width:1200px;
+      --gap:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;padding:24px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",Arial;
+      background:var(--bg);color:var(--white);line-height:1.5;
+    }
+    .container{max-width:var(--max-width);margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffc9b8);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+    .brand h1{margin:0;font-size:20px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;align-items:center;gap:12px}
+    .contact-links a{background:#1f2937;padding:8px 12px;border-radius:8px;color:#fff;text-decoration:none;font-size:14px}
+    .cta{background:var(--accent);color:#fff;border:none;padding:10px 16px;border-radius:12px;font-weight:600;cursor:pointer}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;margin-top:28px;align-items:center}
+    .hero-left h2{font-size:28px;margin:0}
+    .hero-left p{color:var(--muted);margin-top:10px}
+    .hero-card{background:var(--card);padding:18px;border-radius:18px}
+
+    /* ✅ صندوق البحث */
+    .search-box{
+      margin-top:24px;
+      display:flex;
+      gap:8px;
+    }
+    .search-box input{
+      flex:1;
+      padding:10px;
+      border-radius:var(--radius);
+      border:1px solid #374151;
+      background:#111827;
+      color:var(--white);
+    }
+    .search-box button{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 16px;
+      border-radius:var(--radius);
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-top:24px}
+    .card{background:var(--card);border-radius:var(--radius);overflow:hidden}
+    .media{aspect-ratio:1/1;background:#374151;display:flex;align-items:center;justify-content:center}
+    .media img{width:100%;height:100%;object-fit:cover}
+    .card-body{padding:12px}
+    .title{font-weight:600;margin:0 0 8px 0}
+    .price{font-weight:700;margin-top:6px;color:var(--accent)}
+    .order-btn{background:#10b981;color:#fff;padding:10px 12px;border:none;border-radius:8px;margin-top:10px;cursor:pointer;width:100%}
+
+    footer{margin-top:40px;padding:20px 0;color:var(--muted);text-align:center}
+
+    @media(max-width:1000px){.hero{grid-template-columns:1fr}.products{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:720px){.products{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:420px){.products{grid-template-columns:1fr}.brand p{display:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <h1>Modar — مودار</h1>
+          <p>متجر ملابس عصري</p>
+        </div>
+      </div>
+      <nav class="contact-links">
+        <a href="tel:+201002569598">📞 اتصال</a>
+        <a href="https://wa.me/201002569598?text=اهلا+مودار">💬 واتساب</a>
+        <a href="mailto:kmr52188@gmail.com">✉️ ايميل</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h2>مودار — أزياء تجمع البساطة والرقي</h2>
+        <div style="margin-top:16px;display:flex;gap:10px;">
+          <button class="cta">تسوق الآن</button>
+          <button class="cta" style="background:#374151">عرض الكل</button>
+        </div>
+      </div>
+      </aside>
+    </section>
+
+    <!-- ✅ البحث -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+      <button onclick="searchProducts()">بحث</button>
+    </div>
+
+    <section class="products" id="products">
+      <article class="card">
+        <div class="media"><img src="images/3.jpg" alt="منتج 1" /></div>
+        <div class="card-body">
+          <h3 class="title">قميص كاجوال - مودار</h3>
+          <div class="price">250ج</div>
+          <form action="order.html" method="get">
+            <input type="hidden" name="product" value="قميص كاجوال - مودار">
+            <input type="hidden" name="price" value="250ج">
+            <button type="submit" class="order-btn">🛒 اطلب الآن</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="media"><img src="images/2.jpg" alt="منتج 2" /></div>
+        <div class="card-body">
+          <h3 class="title">سويت شيرت مريح</h3>
+          <div class="price">250ج</div>
+          <form action="order.html" method="get">
+            <input type="hidden" name="product" value="سويت شيرت مريح">
+            <input type="hidden" name="price" value="250ج">
+            <button type="submit" class="order-btn">🛒 اطلب الآن</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="media"><img src="images/4.jpg" alt="منتج 3" /></div>
+        <div class="card-body">
+          <h3 class="title">بنطلون كلاسيك</h3>
+          <div class="price">250ج</div>
+          <form action="order.html" method="get">
+            <input type="hidden" name="product" value="بنطلون كلاسيك">
+            <input type="hidden" name="price" value="250ج">
+            <button type="submit" class="order-btn">🛒 اطلب الآن</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="media"><img src="images/5.jpg" alt="منتج 4" /></div>
+        <div class="card-body">
+          <h3 class="title">جاكيت خفيف</h3>
+          <div class="price">250ج</div>
+          <form action="order.html" method="get">
+            <input type="hidden" name="product" value="جاكيت خفيف">
+            <input type="hidden" name="price" value="250ج">
+            <button type="submit" class="order-btn">🛒 اطلب الآن</button>
+          </form>
+        </div>
+      </article>
+    </section>
+
+    <footer>© 2025 Modar — مودار · جميع الحقوق محفوظة</footer>
+  </div>
+
+  <script>
+    function searchProducts() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let products = document.querySelectorAll(".products .card");
+
+      products.forEach(card => {
+        let title = card.querySelector(".title").textContent.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
